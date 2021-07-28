@@ -44,8 +44,13 @@ if __name__ == "__main__":
     alpha = float(sys.argv[1]) if len(sys.argv) > 1 else 0.5
     l1_ratio = float(sys.argv[2]) if len(sys.argv) > 2 else 0.5
     
-    local_path = 'postgresql://postgres:postgres@localhost:5433/postgres'
+    local_path = 'file:///C:/Users/anoop_a/mlflow/mlruns'
     experiment_name = 'GitHubProject'
+    mlflow_user = "postgres"
+    mlflow_pass = "postgres"
+    postgresql_database = "postgres"
+    tracking_uri = f"postgresql://{mlflow_user}:{mlflow_pass}@127.0.0.1:5433/{postgresql_database}"
+    mlflow.set_tracking_uri(tracking_uri)
     
     if not mlflow.get_experiment_by_name(experiment_name):
         print("does not exist")
