@@ -15,9 +15,6 @@ from sklearn.linear_model import ElasticNet
 import mlflow
 import mlflow.sklearn
 
-local_path = 'file:///C:/Users/anoop_a/mlflow/mlruns'
-experiment_name = 'GitHubProject'
-
 
 def eval_metrics(actual, pred):
     rmse = np.sqrt(mean_squared_error(actual, pred))
@@ -47,6 +44,9 @@ if __name__ == "__main__":
     alpha = float(sys.argv[1]) if len(sys.argv) > 1 else 0.5
     l1_ratio = float(sys.argv[2]) if len(sys.argv) > 2 else 0.5
     
+    local_path = 'file:///C:/Users/anoop_a/mlflow/mlruns'
+    experiment_name = 'GitHubProject'
+    
     if not mlflow.get_experiment_by_name(experiment_name):
         print("does not exist")
         mlflow.create_experiment(name=experiment_name, artifact_location=local_path)
@@ -64,6 +64,12 @@ if __name__ == "__main__":
         print("  RMSE: %s" % rmse)
         print("  MAE: %s" % mae)
         print("  R2: %s" % r2)
+        
+        mlflow.sklearn.log_model(
+            sk_model=lr,
+            artifact_path="elasticnet-model",
+            registered_model_name="sk-learn-elasticnet-model"
+        )
 
         mlflow.log_param("alpha", alpha)
         mlflow.log_param("l1_ratio", l1_ratio)
