@@ -44,7 +44,7 @@ if __name__ == "__main__":
     alpha = float(sys.argv[1]) if len(sys.argv) > 1 else 0.5
     l1_ratio = float(sys.argv[2]) if len(sys.argv) > 2 else 0.5
     
-    local_path = 'file:///C:/Users/anoop_a/mlflow/mlruns'
+    local_path = 'postgresql://postgres:postgres@localhost:5433/postgres'
     experiment_name = 'GitHubProject'
     
     if not mlflow.get_experiment_by_name(experiment_name):
