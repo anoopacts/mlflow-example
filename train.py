@@ -58,7 +58,8 @@ if __name__ == "__main__":
     experiment = mlflow.get_experiment_by_name(experiment_name)
     print(experiment)
 
-    with mlflow.start_run(experiment_id = experiment.experiment_id,run_name= f"run_{experiment_name}"):
+    # with mlflow.start_run(experiment_id = experiment.experiment_id,run_name= f"run_{experiment_name}"):
+    with mlflow.start_run():
         lr = ElasticNet(alpha=alpha, l1_ratio=l1_ratio, random_state=42)
         lr.fit(train_x, train_y)
 
