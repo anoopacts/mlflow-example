@@ -45,7 +45,7 @@ if __name__ == "__main__":
     l1_ratio = float(sys.argv[2]) if len(sys.argv) > 2 else 0.5
     
     local_path = 'file:///C:/Users/anoop_a/mlflow/mlruns'
-    experiment_name = 'GitProject1'
+    experiment_name = 'GitProject2'
     mlflow_user = "postgres"
     mlflow_pass = "postgres"
     postgresql_database = "postgres"
@@ -54,7 +54,7 @@ if __name__ == "__main__":
     
     if not mlflow.get_experiment_by_name(experiment_name):
         print("does not exist")
-        mlflow.create_experiment(name=experiment_name)
+        mlflow.create_experiment(name=experiment_name, artifact_location=local_path)
     experiment = mlflow.get_experiment_by_name(experiment_name)
     print(experiment)
 
