@@ -1,1 +1,1 @@
-# Example MLflow project
+# MLflow Project Demo
