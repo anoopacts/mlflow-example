@@ -72,11 +72,11 @@ if __name__ == "__main__":
         print("  MAE: %s" % mae)
         print("  R2: %s" % r2)
         
-        mlflow.sklearn.log_model(
-            sk_model=lr,
-            artifact_path="elasticnet-model",
-            registered_model_name="sk-learn-elasticnet-model"
-        )
+#        mlflow.sklearn.log_model(
+#            sk_model=lr,
+#            artifact_path="elasticnet-model",
+#            registered_model_name="sk-learn-elasticnet-model"
+#        )
 
         mlflow.log_param("alpha", alpha)
         mlflow.log_param("l1_ratio", l1_ratio)
