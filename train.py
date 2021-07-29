@@ -45,7 +45,7 @@ if __name__ == "__main__":
     l1_ratio = float(sys.argv[2]) if len(sys.argv) > 2 else 0.5
     
     local_path = 'file:///C:/Users/anoop_a/mlflow/mlruns'
-    experiment_name = 'GitProject2'
+    experiment_name = 'GitProject3'
     mlflow_user = "postgres"
     mlflow_pass = "postgres"
     postgresql_database = "postgres"
