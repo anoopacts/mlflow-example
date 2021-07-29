@@ -56,7 +56,7 @@ if __name__ == "__main__":
         mlflow.create_experiment(name=experiment_name, artifact_location=local_path)
     experiment = mlflow.get_experiment_by_name(experiment_name)
     print(experiment)
-    mlflow.set_tracking_uri(tracking_uri)
+    # mlflow.set_tracking_uri(tracking_uri)
     with mlflow.start_run(experiment_id = experiment.experiment_id,run_name= f"run_{experiment_name}"):
     # with mlflow.start_run():
         lr = ElasticNet(alpha=alpha, l1_ratio=l1_ratio, random_state=42)
