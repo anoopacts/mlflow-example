@@ -49,13 +49,14 @@ if __name__ == "__main__":
     mlflow_user = "postgres"
     mlflow_pass = "postgres"
     postgresql_database = "postgres"
-    tracking_uri = f"postgresql://{mlflow_user}:{mlflow_pass}@127.0.0.1:5433/{postgresql_database}"
+    # tracking_uri = f"postgresql://{mlflow_user}:{mlflow_pass}@127.0.0.1:5433/{postgresql_database}"
     
     if not mlflow.get_experiment_by_name(experiment_name):
         print("does not exist")
         mlflow.create_experiment(name=experiment_name, artifact_location=local_path)
     experiment = mlflow.get_experiment_by_name(experiment_name)
     print(experiment)
+    tracking_uri = 'http://localhost:5000'
     # mlflow.set_tracking_uri(tracking_uri)
     with mlflow.start_run(experiment_id = experiment.experiment_id,run_name= f"run_{experiment_name}"):
     # with mlflow.start_run():
